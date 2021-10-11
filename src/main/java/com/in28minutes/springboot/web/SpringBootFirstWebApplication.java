@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web;
+package com.rajputmarch2020.springboot.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
