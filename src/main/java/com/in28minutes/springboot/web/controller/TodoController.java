@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.in28minutes.springboot.web.model.Todo;
-import com.in28minutes.springboot.web.service.TodoRepository;
+import com.rajputmarch2020.springboot.web.model.Todo;
+import com.rajputmarch2020.springboot.web.service.TodoRepository;
 
 @Controller
 public class TodoController {
