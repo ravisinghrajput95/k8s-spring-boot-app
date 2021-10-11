@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web.controller;
+package com.rajputmarch2020.springboot.web.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
