@@ -1,50 +1,39 @@
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  annotations:
-    kompose.cmd: kompose convert
-    kompose.version: 1.24.0 (4a2a0458)
-  creationTimestamp: null
   labels:
     io.kompose.service: mysql
   name: mysql
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      io.kompose.service: mysql
   strategy:
     type: Recreate
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert
-        kompose.version: 1.24.0 (4a2a0458)
-      creationTimestamp: null
       labels:
         io.kompose.service: mysql
     spec:
       containers:
-        - env:
-            - name: MYSQL_DATABASE
-              value: todos
-            - name: MYSQL_PASSWORD
-              value: dummytodos
-            - name: MYSQL_ROOT_PASSWORD
-              value: dummypassword
-            - name: MYSQL_USER
-              value: todos-user
-          image: mysql:5.7
-          name: mysql
-          ports:
-            - containerPort: 3306
-          resources: {}
-          volumeMounts:
-            - mountPath: /var/lib/mysql
-              name: mysql-database-data-volume
+      - env:
+        - name: MYSQL_DATABASE
+          value: todos
+        - name: MYSQL_PASSWORD
+          value: dummytodos
+        - name: MYSQL_ROOT_PASSWORD
+          value: dummypassword
+        - name: MYSQL_USER
+          value: todos-user
+        image: mysql:5.7
+        args:
+          - "--ignore-db-dir=lost+found" #CHANGE
+        name: mysql
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: mysql-database-data-volume
       restartPolicy: Always
       volumes:
-        - name: mysql-database-data-volume
-          persistentVolumeClaim:
-            claimName: mysql-database-data-volume
-status: {}
+      - name: mysql-database-data-volume
+        persistentVolumeClaim:
+          claimName: mysql-database-data-volume
