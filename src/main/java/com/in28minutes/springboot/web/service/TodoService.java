@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web.service;
+package com.rajputmarch2020.springboot.web.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.in28minutes.springboot.web.model.Todo;
+import com.rajputmarch2020.springboot.web.model.Todo;
 
 @Service
 public class TodoService {
@@ -15,10 +15,10 @@ public class TodoService {
     private static int todoCount = 3;
 
     static {
-        todos.add(new Todo(1, "in28minutes", "Learn Spring MVC", new Date(),
+        todos.add(new Todo(1, "rajputmarch2020", "Learn Spring MVC", new Date(),
                 false));
-        todos.add(new Todo(2, "in28minutes", "Learn Struts", new Date(), false));
-        todos.add(new Todo(3, "in28minutes", "Learn Hibernate", new Date(),
+        todos.add(new Todo(2, "rajputmarch2020", "Learn Struts", new Date(), false));
+        todos.add(new Todo(3, "rajputmarch2020", "Learn Hibernate", new Date(),
                 false));
     }
 
