@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web.model;
+package com.rajputmarch2020.springboot.web.model;
 
 import java.util.Date;
 
