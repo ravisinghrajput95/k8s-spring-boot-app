@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web.controller;
+package com.rajputmarch2020.springboot.web.controller;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
