@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web;
+package com.rajputmarch2020.springboot.web;
 
 import java.util.Arrays;
 import java.util.stream.StreamSupport;
