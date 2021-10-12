@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- config-map.yaml
+- mysql-database-data-volume-persistentvolumeclaim.yaml
+- mysql-deployment.yaml
+- mysql-service.yaml
+- secret.yaml
+- todo-web-application-deployment.
+- todo-web-application-service.yaml
