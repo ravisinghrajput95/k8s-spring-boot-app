@@ -11,7 +11,7 @@ env:
   GKE_ZONE: ${{ secrets.GKE_ZONE }} 
   DEPLOYMENT_NAME: ${{ secrets.DEPLOYMENT_NAME }}
   IMAGE: ${{ secrets.IMAGE }}
-  working-directory: ./k8s-manifests
+  working-directory: k8s-manifests
 
 jobs:
   setup-build-publish-deploy:
