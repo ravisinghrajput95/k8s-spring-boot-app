@@ -21,6 +21,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+        # Build the artifacts image
+    - name: Maven build
+      run: |-
+        mvn clean install
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7
@@ -36,10 +40,7 @@ jobs:
         location: ${{ env.GKE_ZONE }}
         credentials: ${{ secrets.GKE_SA_KEY }}
 
-    # Build the artifacts image
-    - name: Maven build
-      run: |-
-        mvn clean install
+
         
     # Build the Docker image
     - name: Build
