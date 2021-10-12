@@ -11,6 +11,7 @@ env:
   GKE_ZONE: ${{ secrets.GKE_ZONE }} 
   DEPLOYMENT_NAME: ${{ secrets.DEPLOYMENT_NAME }}
   IMAGE: ${{ secrets.IMAGE }}
+  working-directory: ./k8s-manifests
 
 jobs:
   setup-build-publish-deploy:
@@ -63,7 +64,7 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        cd ./k8s-spring-boot-app/k8s-manifests
+      working-directory: ${{env.working-directory}}   
         ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
