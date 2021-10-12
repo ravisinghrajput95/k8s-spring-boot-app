@@ -6,5 +6,5 @@ resources:
 - mysql-deployment.yaml
 - mysql-service.yaml
 - secret.yaml
-- todo-web-application-deployment.
+- todo-web-application-deployment.yaml
 - todo-web-application-service.yaml
