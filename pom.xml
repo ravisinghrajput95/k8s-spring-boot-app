@@ -133,7 +133,7 @@
 					<repository>rajputmarch2020/${project.name}</repository>
 					<tag>${project.version}</tag>
 					<pullNewerImage>false</pullNewerImage>
-					<skipDockerInfo>true</skipDockerInfo>
+					
 				</configuration>
 			</plugin>
 
