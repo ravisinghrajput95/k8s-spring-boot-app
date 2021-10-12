@@ -11,7 +11,6 @@ env:
   GKE_ZONE: ${{ secrets.GKE_ZONE }} 
   DEPLOYMENT_NAME: ${{ secrets.DEPLOYMENT_NAME }}
   IMAGE: ${{ secrets.IMAGE }}
-  working-directory: k8s-manifests
 
 jobs:
   setup-build-publish-deploy:
@@ -22,12 +21,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-        # Build the artifacts image
+        
+    # Build the artifacts image       
     - name: Maven build
       run: |-
         mvn clean install
 
     # Setup gcloud CLI
+    - name: configure gcloud
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7
       with:
         service_account_key: ${{ secrets.GKE_SA_KEY }}
@@ -63,8 +64,7 @@ jobs:
 
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
-      run: |-
-      working-directory: ${{env.working-directory}}   
+      run: |-   
         ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
